@@ -15,6 +15,7 @@
     "express": "4.13.4",
     "graphql-tools": "^1.0.0",
     "logger": "0.0.1",
+    "merge-graphql-schemas": "^1.1.1",
     "mongoose": "^4.11.4",
     "morgan": "^1.8.2"
   },

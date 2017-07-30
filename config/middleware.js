@@ -1,7 +1,7 @@
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-import schema from '../modules/schemas';
+import schema from '../schemas';
 
 
 export default (app) => {
