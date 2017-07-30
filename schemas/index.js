@@ -1,14 +1,22 @@
 import { makeExecutableSchema ,} from 'graphql-tools';
 import { mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
+import glob from 'glob';
+import path from 'path';
 
-import BookSchema from '../modules/books/books.schema';
-import AuthorSchema from '../modules/author/author.schema';
+let SchemaLocation = glob.sync('**/*.schema.js', { cwd: 'modules'});
 
-import BookResolver from '../modules/books/books.resolver';
-import AuthorResolver from '../modules/author/author.resolver';
+let Schemas = SchemaLocation.map((current) => {
+  return require(`../modules/${current}`).default;
+});
 
-const typeDefs = mergeTypes([ BookSchema, AuthorSchema ]);
-const resolvers = mergeResolvers([ BookResolver, AuthorResolver ]);
+let ResolverLocation = glob.sync('**/*.resolver.js', { cwd: 'modules'});
+
+let Resolvers = ResolverLocation.map((current) => {
+  return require(`../modules/${current}`).default;
+});
+
+const typeDefs = mergeTypes([ ...Schemas ]);
+const resolvers = mergeResolvers([ ...Resolvers ]);
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
