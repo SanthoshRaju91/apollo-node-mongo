@@ -8,7 +8,7 @@ const { PORT } = config;
 const app = express();
 
 // middleware configuration
-db();
+db.open();
 middleware(app);
 
 app.listen(PORT, (err) => {

@@ -14,4 +14,4 @@ export default (app) => {
   })));
   app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql'}));
   app.use(morgan('dev'));
-}
+};

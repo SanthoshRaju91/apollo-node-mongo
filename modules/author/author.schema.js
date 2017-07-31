@@ -7,11 +7,11 @@ export default `
   }
 
   type Query {
-    author(id: ID!, firstname: String, lastname: String): Author
+    author(id: ID, firstname: String, lastname: String): Author
     getAuthors(firstname: String, lastname: String): [Author]
   }
 
   type Mutation {
-    createAuthor(firstname: String, lastname: String): Author    
+    createAuthor(firstname: String, lastname: String): Author
   }
 `;
