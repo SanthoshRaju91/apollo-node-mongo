@@ -57,11 +57,80 @@ describe('Books Integration', () => {
             ]
         };
 
-        return integrationServer
-            .graphqlQuery(app, query)
-            .then((response) => {
-                expect(response.statusCode).to.equal(200);
-                expect(response.body).to.have.deep.equals(expected);
-            });
+        return integrationServerCall(app, query, expected);
+    });
+
+
+    it('Should return all the authors', () => {
+        const query = `
+      {
+        getAuthors{
+          firstname
+          lastname
+          id
+        }
+      }
+      `;
+
+        const expected = {
+            "getAuthors": [{
+                    "firstname": "Amish",
+                    "lastname": "Tripati",
+                    "id": "597dec17345f2a446c1d7a99"
+                },
+                {
+                    "firstname": "Markus",
+                    "lastname": "Zusak",
+                    "id": "597df0941beded45355964c8"
+                }
+            ]
+        };
+
+        return integrationServerCall(app, query, expected);
+    });
+
+    it('Should return author\'s details with his books', () => {
+        const query = `
+      {
+        author(id: "597dec17345f2a446c1d7a99") {
+          firstname
+          lastname
+          books {
+            title
+            year
+            pages
+          }
+        }
+      }
+      `;
+
+        const expected = {
+            "author": {
+                "firstname": "Amish",
+                "lastname": "Tripati",
+                "books": [{
+                        "title": "Sita Warrior princess of Mithila",
+                        "year": 2017,
+                        "pages": 350
+                    },
+                    {
+                        "title": "Sita Warrior princess of Mithila",
+                        "year": 2017,
+                        "pages": 350
+                    }
+                ]
+            }
+        };
+
+        return integrationServerCall(app, query, expected);
     });
 });
+
+function integrationServerCall(app, query, expected) {
+    return integrationServer
+        .graphqlQuery(app, query)
+        .then((response) => {
+            expect(response.statusCode).to.equal(200);
+            expect(response.body).to.have.deep.equals(expected);
+        });
+};

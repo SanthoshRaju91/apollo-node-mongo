@@ -2,7 +2,7 @@ import Controller from './author.controller';
 
 export default {
     Query: {
-        author(root, args) {
+        author(root, args, context) {
             return Controller.getAuthor(args)
                 .then(author => author)
                 .catch(err => err);

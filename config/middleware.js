@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import schema from '../schemas';
 
-
 export default (app) => {
   app.use(bodyParser.json({ encoded: true }));
   app.use('/graphql', bodyParser.json(), graphqlExpress(req => ({
