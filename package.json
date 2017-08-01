@@ -4,7 +4,7 @@
   "description": "API's built with Apollo and MongoDB",
   "main": "index.js",
   "scripts": {
-    "test": "mocha 'tests/**/*.specs.js' --compilers js:babel-core/register",
+    "test": "NODE_ENV=test mocha 'tests/**/*.specs.js' --compilers js:babel-core/register",
     "start": "nodemon ./index.js --exec babel-node"
   },
   "author": "Santhosh Raju",
