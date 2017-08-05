@@ -131,6 +131,6 @@ function integrationServerCall(app, query, expected) {
         .graphqlQuery(app, query)
         .then((response) => {
             expect(response.statusCode).to.equal(200);
-            expect(response.body).to.be.an('object');
+            expect(response.body).to.be.an('string');
         });
 };
