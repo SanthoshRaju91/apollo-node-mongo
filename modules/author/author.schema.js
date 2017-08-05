@@ -7,7 +7,7 @@ export default `
   }
 
   type Query {
-    author(id: ID, firstname: String, lastname: String): Author
+    author(id: ID!, firstname: String, lastname: String): Author
     getAuthors(firstname: String, lastname: String): [Author]
   }
 

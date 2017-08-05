@@ -13,4 +13,5 @@
 4. Check if the application is working, by running the tests.
    
    `npm test`
+ changed
    

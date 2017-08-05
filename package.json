@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha 'tests/**/*.specs.js' --compilers js:babel-core/register",
-    "start": "nodemon ./index.js --exec babel-node"
+    "start": "$(npm bin)/nodemon ./index.js --exec babel-node"
   },
   "author": "Santhosh Raju",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^1.0.2",
+    "babel-cli": "^6.5.1",
     "body-parser": "^1.17.2",
     "express": "4.13.4",
     "glob": "^7.1.2",
