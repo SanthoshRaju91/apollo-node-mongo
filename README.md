@@ -14,4 +14,3 @@
    
    `npm test`
 
-Adding changing to check the webhook for pull requests
