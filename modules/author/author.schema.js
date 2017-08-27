@@ -14,4 +14,8 @@ export default `
   type Mutation {
     createAuthor(firstname: String, lastname: String): Author
   }
+
+  type Subscription {
+    authorAdded(channelID: ID!): Author
+  }
 `;
