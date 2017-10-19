@@ -13,5 +13,3 @@
 4. Check if the application is working, by running the tests.
    
    `npm test`
-
-Adding changing to check the webhook for pull requests

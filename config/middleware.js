@@ -9,7 +9,8 @@ export default (app) => {
     schema,
     context: {
       user: req.user
-    }
+    },
+    subscriptionsEndpoint: `ws://localhost:3000/subscriptions`
   })));
   app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql'}));
   app.use(morgan('dev'));
